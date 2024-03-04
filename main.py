@@ -17,7 +17,7 @@ def split(filename, output_name):
         outFile = open(f'{output_name}\\{output_name}_{file_count}.txt', 'w')
         count = 0
         for line in inFile:
-            outFile.write(line.replace('/', '-'))
+            outFile.write(line.replace('/', '-').replace('BLUE', '1000'))
             count -= -1
             if count >= NUM_LINES:
                 outFile.close()
