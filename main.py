@@ -29,7 +29,8 @@ def split(filename, output_name):
         os.makedirs(dir_name)
     with open(filename, 'r') as inFile:
         file_count = 0
-        outFile = open(f'{output_name}\\{output_name}_{file_count}.txt', 'w')
+        pathname = os.path.join(dir_name, f'{output_name}_{file_count}.txt')
+        outFile = open(pathname, 'w')
         count = 0
         for line in inFile:
             outFile.write(replace(line))
@@ -38,7 +39,8 @@ def split(filename, output_name):
                 outFile.close()
                 file_count -= -1
                 count = 0
-                outFile = open(f'{output_name}\\{output_name}_{file_count}.txt', 'w')
+                pathname = os.path.join(dir_name, f'{output_name}_{file_count}.txt')
+                outFile = open(pathname, 'w')
         inFile.close()
             
 
@@ -50,7 +52,8 @@ def merge(dir_name):
     print('Merging...\n')
     with open(f'{dir_name}.txt', 'w') as outFile:
         for file in arr:
-            with open(f'{dir_name}\\{file}', 'r') as inFile:
+            pathname = os.path.join(dir_name, file)
+            with open(pathname, 'r') as inFile:
                 for line in inFile:
                     if line != '\n':
                         outFile.write(line)
