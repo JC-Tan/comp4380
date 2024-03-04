@@ -52,7 +52,7 @@ def merge(dir_name):
     print('Merging...\n')
     with open(f'{dir_name}.txt', 'w') as outFile:
         for file in arr:
-            pathname = os.path.join(dir_name, file)
+            pathname = os.path.join(os.path.dirname(__file__), dir_name,file)
             with open(pathname, 'r') as inFile:
                 for line in inFile:
                     if line != '\n':
