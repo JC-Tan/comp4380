@@ -33,3 +33,4 @@ CREATE TABLE transit_pass_up (
 );
 
 COPY public.daily_passenger_activity FROM '{PATH_TO}\dailyPassengerActivity.txt' (FORMAT CSV, DELIMITER(','));
+COPY public.transit_pass_up FROM '{PATH_TO}\transitPassUp.txt' (FORMAT CSV, DELIMITER(','));
